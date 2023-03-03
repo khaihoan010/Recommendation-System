@@ -127,7 +127,7 @@ def filter_customerID(df_merged,customer_id):
     list_product_ID=[]
     list_product_Rating=[]
     list_customerID=[]
-    for i in range(1,6):
+    for i in range(1,11):
         index_="sp"+str(i)
         list_product_ID.append(sp[index_][index].split(",")[0])
         list_product_Rating.append(sp[index_][index].split(",")[1])
