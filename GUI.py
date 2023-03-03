@@ -919,7 +919,7 @@ elif condition == 'New Recommendation':
     if select_model=="Collaborative Filtering":
 
         product_als_recommendation= load_data("https://khaihoan.gmazi.com/Project_2_ALS.csv")
-        st.dataframe(product_als_recommendation)
+        #st.dataframe(product_als_recommendation)
 
 
         gd_reviews= GridOptionsBuilder.from_dataframe(reviews.head(1000))
@@ -968,7 +968,7 @@ elif condition == 'New Recommendation':
                 customer_ID_input= row["customer_id"]
                 #st.dataframe(filter_customerID(product_als_recommendation,customer_ID_input))
                 results=filter_customerID(product_als_recommendation,customer_ID_input)
-                st.write(results)
+                #st.write(results)
 
                 show_result_ALS(results,products_raw)
 
