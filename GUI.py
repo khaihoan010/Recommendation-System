@@ -918,7 +918,7 @@ elif condition == 'New Recommendation':
 
     if select_model=="Collaborative Filtering":
 
-        product_als_recommendation= load_data("https://khaihoan.gmazi.com/Project_2_ALS.csv")
+        product_als_recommendation= load_data("https://khaihoan.gmazi.com/Project_2_ALS_1.csv")
         #st.dataframe(product_als_recommendation)
 
 
