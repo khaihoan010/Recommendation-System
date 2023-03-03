@@ -974,8 +974,8 @@ elif condition == 'New Recommendation':
 
     elif select_model=="Content-based Filtering":
         #st.dataframe(products.head(10))
-
-        gd = GridOptionsBuilder.from_dataframe(products_raw)
+        load_db=products_raw[["item_id","name","rating","price","brand"]]
+        gd = GridOptionsBuilder.from_dataframe(load_db)
         gd.configure_pagination(enabled=True)
         gd.configure_default_column(editable=True, groupable=True,enableValue=True,enableRowGroup=True)
         gd.configure_side_bar()
@@ -983,14 +983,14 @@ elif condition == 'New Recommendation':
         sel_mode = 'multiple'
         gd.configure_selection(selection_mode=sel_mode, use_checkbox=True)
         gridoptions = gd.build()
-        grid_table = AgGrid(products_raw, gridOptions=gridoptions,
+        grid_table = AgGrid(load_db, gridOptions=gridoptions,
                             enable_enterprise_modules=True,
                             update_mode=GridUpdateMode.SELECTION_CHANGED | GridUpdateMode.VALUE_CHANGED| GridUpdateMode.MODEL_CHANGED,
                             data_return_mode=DataReturnMode.FILTERED_AND_SORTED,
                             header_checkbox_selection_filtered_only=True,
                             height=500,
                             allow_unsafe_jscode=True,
-                            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+                            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,
                             fit_columns_on_grid_load=False
                             )
 
